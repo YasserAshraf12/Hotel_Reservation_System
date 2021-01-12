@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 4, 2021 6:34:41 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Models.SpecificHotelFeature" table="specific_hotel_feature" catalog="lifetrip_hrs" optimistic-lock="version">
+        <id name="featureId" type="int">
+            <column name="feature_ID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="hotelFeatures" class="Models.HotelFeatures" fetch="select">
+            <column name="Feature_Code" length="18" not-null="true" />
+        </many-to-one>
+        <many-to-one name="hotels" class="Models.Hotels" fetch="select">
+            <column name="Hotel_ID" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

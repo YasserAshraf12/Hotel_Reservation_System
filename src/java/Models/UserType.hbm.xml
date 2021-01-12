@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 4, 2021 6:34:41 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Models.UserType" table="user_type" catalog="lifetrip_hrs" optimistic-lock="version">
+        <id name="typeId" type="java.lang.Integer">
+            <column name="Type_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="typeName" type="string">
+            <column name="Type_Name" length="45" not-null="true" unique="true" />
+        </property>
+        <set name="userses" table="users" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="User_Type_ID" not-null="true" />
+            </key>
+            <one-to-many class="Models.Users" />
+        </set>
+    </class>
+</hibernate-mapping>

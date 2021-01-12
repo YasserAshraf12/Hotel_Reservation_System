@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.navbar-brand{
+    color: white !important;
+    text-decoration: none;
+    font-size: 25px;
+    font-family: 'Pacifico', cursive;
+    
+}
+.navbar-brand::before{
+    content: "LT";
+    background-color: white;
+    color: black;
+    padding: 5px;
+    font-weight: bold;
+    font-family: cursive;
+    margin-right: 8px;
+    
+}
+
+.mainController{
+    padding: 0;
+    margin: 0;
+}
+
+/*====================================================================================*/
+.social-nav {
+  padding: 0;
+  list-style: none;
+  display: inline-block;
+  margin: 10px auto;
+}
+.social-nav li {
+    display: inline-block;
+    transition: 0.5s;
+}
+.social-nav a {
+    display: inline-block;
+    float: left;
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+    color: #FFF;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    line-height: 48px;
+    background: #000;
+    position: relative;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+}
+.social-nav li:hover {
+    transform: scale(0.9,0.9);
+}
+.social-nav li:nth-child(1) a:hover{
+    background-color: #3B5998;
+}
+
+.social-nav li:nth-child(2) a:hover{
+    background-color: #1DA1F2;
+}
+
+.social-nav li:nth-child(3) a:hover{
+    background-image: linear-gradient(#cd486b, #8a3ab9);
+}
+
+.social-nav li:nth-child(4) a:hover{
+    background-color: #FF0000;
+}
+
+
+
+.overlay{
+    position: absolute;
+    background-color: #212529;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: .2;
+    z-index: 2;
+}
+.banner-img{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    z-index: 1;
+    background-image: url('../images/background.jpg');
+    background-position: center center;
+    background-size: cover;
+    display: inline-block;
+}
+.panel .row{
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+}
+.panel .row .caption-Container{
+    padding: 20px;
+    color: white;
+}
+.panel .row .caption-Container p{
+    font-size: 18px;
+}
+
+@media(max-width: 430px){
+    .captionsDiv{
+        display: none;
+    }
+}
+
+@media(max-width: 360px){
+    .loginBtn{
+        margin-bottom: 15px;
+    }
+}
+
+

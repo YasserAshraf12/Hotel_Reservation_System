@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 4, 2021 6:34:41 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Models.Country" table="country" catalog="lifetrip_hrs" optimistic-lock="version">
+        <id name="countryCode" type="string">
+            <column name="Country_Code" length="18" />
+            <generator class="assigned" />
+        </id>
+        <property name="countryCurrency" type="string">
+            <column name="Country_Currency" length="18" />
+        </property>
+        <property name="countryName" type="string">
+            <column name="Country_Name" length="250" />
+        </property>
+        <set name="hotelses" table="hotels" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Country_Code" length="18" not-null="true" />
+            </key>
+            <one-to-many class="Models.Hotels" />
+        </set>
+        <set name="cities" table="city" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Country_Code" length="18" />
+            </key>
+            <one-to-many class="Models.City" />
+        </set>
+        <set name="userses" table="users" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="User_Country_Code" length="18" not-null="true" />
+            </key>
+            <one-to-many class="Models.Users" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 4, 2021 6:34:41 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Models.HotelFeatures" table="hotel_features" catalog="lifetrip_hrs" optimistic-lock="version">
+        <id name="featureCode" type="string">
+            <column name="Feature_Code" length="18" />
+            <generator class="assigned" />
+        </id>
+        <property name="featureCodeDescription" type="string">
+            <column name="Feature_Code_Description" length="250" />
+        </property>
+        <set name="specificHotelFeatures" table="specific_hotel_feature" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Feature_Code" length="18" not-null="true" />
+            </key>
+            <one-to-many class="Models.SpecificHotelFeature" />
+        </set>
+    </class>
+</hibernate-mapping>

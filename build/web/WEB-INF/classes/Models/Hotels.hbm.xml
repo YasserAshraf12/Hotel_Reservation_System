@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 4, 2021 6:34:41 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Models.Hotels" table="hotels" catalog="lifetrip_hrs" optimistic-lock="version">
+        <id name="hotelId" type="int">
+            <column name="Hotel_ID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="country" class="Models.Country" fetch="select">
+            <column name="Country_Code" length="18" not-null="true" />
+        </many-to-one>
+        <many-to-one name="hotelChains" class="Models.HotelChains" fetch="select">
+            <column name="Hotel_Chain_Code" length="250" />
+        </many-to-one>
+        <property name="hotelName" type="string">
+            <column name="Hotel_Name" length="250" />
+        </property>
+        <property name="emailAddress" type="string">
+            <column name="Email_Address" length="250" />
+        </property>
+        <property name="hotelAddress" type="string">
+            <column name="Hotel_Address" length="250" />
+        </property>
+        <property name="hotelPhotos" type="string">
+            <column name="Hotel_Photos" length="250" />
+        </property>
+        <set name="specificHotelFeatures" table="specific_hotel_feature" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Hotel_ID" not-null="true" />
+            </key>
+            <one-to-many class="Models.SpecificHotelFeature" />
+        </set>
+        <set name="hotelRatings" table="hotel_rating" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Hotel_ID" not-null="true" />
+            </key>
+            <one-to-many class="Models.HotelRating" />
+        </set>
+        <set name="commentses" table="comments" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Hotel_ID" not-null="true" />
+            </key>
+            <one-to-many class="Models.Comments" />
+        </set>
+        <set name="roomses" table="rooms" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Hotel_ID" />
+            </key>
+            <one-to-many class="Models.Rooms" />
+        </set>
+        <set name="roomses_1" table="rooms" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Hotel_ID" />
+            </key>
+            <one-to-many class="Models.Rooms" />
+        </set>
+        <set name="roomses_2" table="rooms" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Hotel_ID" />
+            </key>
+            <one-to-many class="Models.Rooms" />
+        </set>
+    </class>
+</hibernate-mapping>

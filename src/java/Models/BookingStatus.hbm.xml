@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 4, 2021 6:34:41 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Models.BookingStatus" table="booking_status" catalog="lifetrip_hrs" optimistic-lock="version">
+        <id name="bookingStatusCode" type="string">
+            <column name="Booking_Status_Code" length="18" />
+            <generator class="assigned" />
+        </id>
+        <property name="bookingStatusDescription" type="string">
+            <column name="Booking_Status_Description" length="250" />
+        </property>
+        <set name="bookings" table="booking" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Booking_Status_Code" length="18" not-null="true" />
+            </key>
+            <one-to-many class="Models.Booking" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="lifetrip_hrs"/>
+  <table-filter match-name="booking_status"/>
+  <table-filter match-name="hotels"/>
+  <table-filter match-name="rooms"/>
+  <table-filter match-name="hotel_features"/>
+  <table-filter match-name="room_types"/>
+  <table-filter match-name="users"/>
+  <table-filter match-name="booking"/>
+  <table-filter match-name="city"/>
+  <table-filter match-name="specific_hotel_feature"/>
+  <table-filter match-name="booking_room_update"/>
+  <table-filter match-name="comments"/>
+  <table-filter match-name="booking_list_insert"/>
+  <table-filter match-name="booking_delete_history"/>
+  <table-filter match-name="room_availability"/>
+  <table-filter match-name="user_type"/>
+  <table-filter match-name="hotel_chains"/>
+  <table-filter match-name="country"/>
+  <table-filter match-name="hotel_rating"/>
+</hibernate-reverse-engineering>

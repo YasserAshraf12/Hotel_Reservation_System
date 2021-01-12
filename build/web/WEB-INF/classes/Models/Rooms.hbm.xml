@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 4, 2021 6:34:41 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Models.Rooms" table="rooms" catalog="lifetrip_hrs" optimistic-lock="version">
+        <id name="roomId" type="int">
+            <column name="Room_ID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="hotels" class="Models.Hotels" fetch="select">
+            <column name="Hotel_ID" />
+        </many-to-one>
+        <many-to-one name="roomTypes" class="Models.RoomTypes" fetch="select">
+            <column name="Room_Type_Code" length="18" not-null="true" />
+        </many-to-one>
+        <property name="roomFloor" type="java.lang.Integer">
+            <column name="Room_Floor" />
+        </property>
+        <property name="roomNumber" type="java.lang.Integer">
+            <column name="Room_Number" />
+        </property>
+        <set name="bookings" table="booking" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Room_ID" not-null="true" />
+            </key>
+            <one-to-many class="Models.Booking" />
+        </set>
+        <set name="bookingRoomUpdatesForNewRoomId" table="booking_room_update" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="New_Room_ID" not-null="true" />
+            </key>
+            <one-to-many class="Models.BookingRoomUpdate" />
+        </set>
+        <set name="roomAvailabilities" table="room_availability" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Room_ID" not-null="true" />
+            </key>
+            <one-to-many class="Models.RoomAvailability" />
+        </set>
+        <set name="bookingDeleteHistories" table="booking_delete_history" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Room_ID" not-null="true" />
+            </key>
+            <one-to-many class="Models.BookingDeleteHistory" />
+        </set>
+        <set name="bookingListInserts" table="booking_list_insert" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Room_ID" not-null="true" />
+            </key>
+            <one-to-many class="Models.BookingListInsert" />
+        </set>
+        <set name="bookingRoomUpdatesForOldRoomId" table="booking_room_update" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Old_Room_ID" not-null="true" />
+            </key>
+            <one-to-many class="Models.BookingRoomUpdate" />
+        </set>
+    </class>
+</hibernate-mapping>

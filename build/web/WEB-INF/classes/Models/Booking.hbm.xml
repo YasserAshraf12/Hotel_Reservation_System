@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 4, 2021 6:34:41 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Models.Booking" table="booking" catalog="lifetrip_hrs" optimistic-lock="version">
+        <id name="bookingId" type="java.lang.Integer">
+            <column name="Booking_ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="bookingStatus" class="Models.BookingStatus" fetch="select">
+            <column name="Booking_Status_Code" length="18" not-null="true" />
+        </many-to-one>
+        <many-to-one name="rooms" class="Models.Rooms" fetch="select">
+            <column name="Room_ID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="users" class="Models.Users" fetch="select">
+            <column name="User_ID" not-null="true" />
+        </many-to-one>
+        <property name="dateFrom" type="date">
+            <column name="Date_From" length="10" not-null="true" />
+        </property>
+        <property name="dateTo" type="date">
+            <column name="Date_To" length="10" not-null="true" />
+        </property>
+        <set name="bookingDeleteHistories" table="booking_delete_history" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Booking_ID" not-null="true" />
+            </key>
+            <one-to-many class="Models.BookingDeleteHistory" />
+        </set>
+        <set name="bookingRoomUpdates" table="booking_room_update" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Booking_ID" not-null="true" />
+            </key>
+            <one-to-many class="Models.BookingRoomUpdate" />
+        </set>
+    </class>
+</hibernate-mapping>

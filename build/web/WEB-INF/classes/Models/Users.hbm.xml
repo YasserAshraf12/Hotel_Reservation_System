@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 4, 2021 6:34:41 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Models.Users" table="users" catalog="lifetrip_hrs" optimistic-lock="version">
+        <id name="userId" type="java.lang.Integer">
+            <column name="User_ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="city" class="Models.City" fetch="select">
+            <column name="User_City_Code" length="18" not-null="true" />
+        </many-to-one>
+        <many-to-one name="country" class="Models.Country" fetch="select">
+            <column name="User_Country_Code" length="18" not-null="true" />
+        </many-to-one>
+        <many-to-one name="userType" class="Models.UserType" fetch="select">
+            <column name="User_Type_ID" not-null="true" />
+        </many-to-one>
+        <property name="userFirstName" type="string">
+            <column name="User_FirstName" length="250" not-null="true" />
+        </property>
+        <property name="userLastName" type="string">
+            <column name="User_LastName" length="250" not-null="true" />
+        </property>
+        <property name="userEmail" type="string">
+            <column name="User_Email" length="250" not-null="true" />
+        </property>
+        <property name="userAge" type="int">
+            <column name="User_Age" not-null="true" />
+        </property>
+        <property name="userUserName" type="string">
+            <column name="User_UserName" length="250" not-null="true" unique="true" />
+        </property>
+        <property name="userPassword" type="string">
+            <column name="User_Password" length="250" not-null="true" />
+        </property>
+        <property name="userAddress" type="string">
+            <column name="User_Address" length="250" />
+        </property>
+        <property name="userTelefone" type="string">
+            <column name="User_Telefone" length="250" />
+        </property>
+        <property name="userProfilePhoto" type="string">
+            <column name="User_Profile_Photo" length="250" />
+        </property>
+        <property name="userAccountVerified" type="char">
+            <column name="User_Account_Verified" length="1" not-null="true" />
+        </property>
+        <set name="bookingListInserts" table="booking_list_insert" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="User_ID" not-null="true" />
+            </key>
+            <one-to-many class="Models.BookingListInsert" />
+        </set>
+        <set name="commentses" table="comments" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="User_ID" not-null="true" />
+            </key>
+            <one-to-many class="Models.Comments" />
+        </set>
+        <set name="bookings" table="booking" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="User_ID" not-null="true" />
+            </key>
+            <one-to-many class="Models.Booking" />
+        </set>
+        <set name="bookingDeleteHistories" table="booking_delete_history" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="User_ID" not-null="true" />
+            </key>
+            <one-to-many class="Models.BookingDeleteHistory" />
+        </set>
+    </class>
+</hibernate-mapping>

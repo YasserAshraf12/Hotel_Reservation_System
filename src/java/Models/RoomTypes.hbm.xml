@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 4, 2021 6:34:41 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Models.RoomTypes" table="room_types" catalog="lifetrip_hrs" optimistic-lock="version">
+        <id name="roomTypeCode" type="string">
+            <column name="Room_Type_Code" length="18" />
+            <generator class="assigned" />
+        </id>
+        <property name="standardRoomRate" type="big_decimal">
+            <column name="Standard_Room_Rate" precision="20" scale="4" />
+        </property>
+        <property name="roomTypeDescription" type="string">
+            <column name="Room_Type_Description" length="250" />
+        </property>
+        <set name="roomses" table="rooms" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Room_Type_Code" length="18" not-null="true" />
+            </key>
+            <one-to-many class="Models.Rooms" />
+        </set>
+        <set name="roomses_1" table="rooms" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Room_Type_Code" length="18" not-null="true" />
+            </key>
+            <one-to-many class="Models.Rooms" />
+        </set>
+        <set name="roomses_2" table="rooms" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Room_Type_Code" length="18" not-null="true" />
+            </key>
+            <one-to-many class="Models.Rooms" />
+        </set>
+    </class>
+</hibernate-mapping>

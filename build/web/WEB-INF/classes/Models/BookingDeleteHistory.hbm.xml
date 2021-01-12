@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 4, 2021 6:34:41 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Models.BookingDeleteHistory" table="booking_delete_history" catalog="lifetrip_hrs" optimistic-lock="version">
+        <id name="bookingDeleteCaseId" type="java.lang.Integer">
+            <column name="Booking_Delete_Case_ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="booking" class="Models.Booking" fetch="select">
+            <column name="Booking_ID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="rooms" class="Models.Rooms" fetch="select">
+            <column name="Room_ID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="users" class="Models.Users" fetch="select">
+            <column name="User_ID" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

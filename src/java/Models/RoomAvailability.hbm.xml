@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 4, 2021 6:34:41 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Models.RoomAvailability" table="room_availability" catalog="lifetrip_hrs" optimistic-lock="version">
+        <id name="caseAvailId" type="java.lang.Integer">
+            <column name="Case_Avail_ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="rooms" class="Models.Rooms" fetch="select">
+            <column name="Room_ID" not-null="true" />
+        </many-to-one>
+        <property name="roomAvailabilityStatus" type="string">
+            <column name="Room_Availability_Status" length="250" not-null="true" />
+        </property>
+        <property name="dueDate" type="date">
+            <column name="Due_Date" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

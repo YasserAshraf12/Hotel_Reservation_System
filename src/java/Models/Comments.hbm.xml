@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 4, 2021 6:34:41 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Models.Comments" table="comments" catalog="lifetrip_hrs" optimistic-lock="version">
+        <id name="commentId" type="java.lang.Integer">
+            <column name="Comment_ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="hotels" class="Models.Hotels" fetch="select">
+            <column name="Hotel_ID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="users" class="Models.Users" fetch="select">
+            <column name="User_ID" not-null="true" />
+        </many-to-one>
+        <property name="commentContent" type="string">
+            <column name="Comment_Content" length="250" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
