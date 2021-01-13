@@ -16,6 +16,10 @@
     <h3 class="w3-center w3-animate-right">You dont have permission to view this site.</h3>
     <h3 class="w3-center w3-animate-zoom">🚫🚫🚫🚫</h3>
     <h6 class="w3-center w3-animate-zoom">error code:403 forbidden</h6>
+    <h2 class="w3-center w3-animate-zoom">
+        <a href="#" class="btn btn-danger p-3">Log out</a>
+        <a href="../index.jsp" class="btn btn-primary p-3">Back</a>
+    </h2>
 </div>
 </body>
 </html>

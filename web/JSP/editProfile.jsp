@@ -1,22 +1,13 @@
-<%@page import="Models.Hotels"%>
-<%@page import="Models.Comments"%>
 <%@page import="java.util.List"%>
-<%@page import="Services.CommentsServices.CommentServicesImpl"%>
-<%@page import="Services.CommentsServices.CommentServices"%>
-<%@page import="Services.HotelServices.HotelServiceImpl"%>
-<%@page import="Services.HotelServices.HotelService"%>
-<%@page import="Services.BookingServices.BookingServicesImpl"%>
-<%@page import="Services.BookingServices.BookingService"%>
-<%@page import="Models.UserType"%>
-<%@page import="Models.City"%>
 <%@page import="Services.CityServices.CityServiceImpl"%>
+<%@page import="Models.City"%>
 <%@page import="Services.CityServices.CityService"%>
 <%@page import="Services.CountryServices.CountryServiceImpl"%>
 <%@page import="Services.CountryServices.CountryService"%>
 <%@page import="Models.Country"%>
-<%@page import="Services.UsersServices.UsersService"%>
 <%@page import="Models.Users"%>
 <%@page import="Services.UsersServices.UserServiceImpl"%>
+<%@page import="Services.UsersServices.UsersService"%>
 <%@page contentType="text/html" pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,27 +19,18 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
         <!--===============================================================================================-->	
-        <link rel="stylesheet" href="<%=request.getContextPath()%>/css/dashboard.css" />
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/css/editProfile.css" />
     </head>
     <body>
+        
         <%
             HttpSession sessionS = request.getSession(false);
-            if(sessionS.getAttribute("UserID") != null){
-                Users user = new Users();
-                UsersService userServices = new UserServiceImpl();
-                Integer id = (Integer) sessionS.getAttribute("UserID");
-                user = userServices.selectByID(id);
-                UserType type = user.getUserType();
-                if(type.getTypeId() != 1)
-                {
-                    response.sendRedirect(request.getContextPath() + "/JSP/InvalidPrivacy.jsp");
-                }
+            if(sessionS.getAttribute("UserID") == null){
+                response.sendRedirect("userLogin.jsp");
             }
-            else{
-                response.sendRedirect(request.getContextPath() + "/JSP/userLogin.jsp");
-            }
-            BookingService bookingService = new BookingServicesImpl();
-            HotelService hotelService = new HotelServiceImpl();
+            Integer userID = (Integer) sessionS.getAttribute("UserID");
+            UsersService usrS = new UserServiceImpl();
+            Users user = usrS.selectByID(userID);
         %>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div class="container-fluid">
@@ -112,9 +94,6 @@
                     <div class="row">
                         <div class="col-12 col-lg-12 col-md-12 col-sm-12 col-xl-4" align="center">
                             <% 
-                                Integer userID = (Integer) sessionS.getAttribute("UserID");
-                                UsersService usrS = new UserServiceImpl();
-                                Users user = usrS.selectByID(userID);
                                 out.print("<img class='userImg' src=" + request.getContextPath() + "/images/" + user.getUserProfilePhoto() + ">");
                             %>
                             
@@ -256,122 +235,118 @@
                 </ul>
             </div>
         </div>
-
         <section class="bodyContainer slideLeft mt-5">
-            <div class="container-fluid">
-                <section class="dashboard-cards">
-                    <div class="container-fluid">
-                        <div class="row mt-5">
-                            <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3 p-2 mb-3">
-                                <div class="card card-hover bg-danger">
-                                    <div class="card-body">
-                                        <div class="d-flex">
-                                            <div class="mr-4">
-                                                <small>Number of Users</small>
-                                                <h4 class="mb-0">
-                                                    <% 
-                                                        out.print(usrS.countUsers());
-                                                    %>
-                                                </h4>
-                                            </div>
-                                        </div>
+            <div class="container"><br><br>
+                <div class="row" id="main">
+                    <div class="col-md-12">
+                        <form role="form">
+                            <h2 style="color: white;">Edit your profile.<small>It's always easy</small></h2>
+                            <hr class="colorgraph">
+                            <div class="row msgRow p-2"></div>
+                            
+                            <div class="row pb-2">
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-12 p-2">
+                                    <div class="form-group">
+                                        <input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="First Name" value="<%=user.getUserFirstName()%>" tabindex="1" required>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-12 p-2">
+                                    <div class="form-group">
+                                            <input type="text" name="last_name" id="last_name" class="form-control input-lg" placeholder="Last Name" value="<%=user.getUserLastName()%>" tabindex="2" required>
                                     </div>
                                 </div>
                             </div>
-                            <!-- column -->
-                            <div class="col-12 col-sm-12  col-md-12 col-lg-3 col-xl-3 p-2 mb-3">
-                                <div class="card card-hover bg-warning">
-                                    <div class="card-body">
-                                        <div class="d-flex">
-                                            <div class="mr-4">
-                                                <small>Number Of Reservations</small>
-                                                <h4 class="mb-0">
-                                                    <%
-                                                        out.print(bookingService.countBooking());
-                                                    %>
-                                                </h4>
-                                            </div>
-                                        </div>
+                            
+                            <div class="row pb-2">
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-12 p-2">
+                                    <div class="form-group">
+                                        <input type="text" name="user_name" id="username" class="form-control input-lg"  value="<%=user.getUserUserName()%>" tabindex="3" readonly required>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-12 p-2">
+                                    <div class="form-group">
+                                        <input type="email" name="email" id="email" class="form-control input-lg" value="<%=user.getUserEmail()%>" tabindex="4" readonly required>
                                     </div>
                                 </div>
                             </div>
-                            <!-- column -->
-                            <div class="col-12 col-sm-12  col-md-12 col-lg-3 col-xl-3 p-2 mb-3">
-                                <div class="card card-hover bg-success">
-                                    <div class="card-body">
-                                        <div class="d-flex">
-                                            <div class="mr-4">
-                                                <small>Number Of Pending Reservation</small>
-                                                <h4 class="mb-0">120</h4>
-                                            </div>
-                                        </div>
+                            
+                            <div class="row pb-2">
+                                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-12 p-2">
+                                    <div class="form-group">
+                                        <input type="tel" name="phoneNum" id="phoneNum" class="form-control input-lg" placeholder="Phone Number" value="<%=user.getUserTelefone()%>" tabindex="5" required>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-12 p-2">
+                                    <div class="form-group">
+                                        <input type="number" name="age" id="age" class="form-control input-lg" placeholder="Age" value="<%=user.getUserAge()%>" tabindex="6" required>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-12 p-2">
+                                    <div class="form-group">
+                                        <input type="text" name="address" id="address" class="form-control input-lg" placeholder="Adress" tabindex="7">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-sm-12  col-md-12 col-lg-3 col-xl-3 p-2 mb-3">
-                                <div class="card card-hover bg-info">
-                                    <div class="card-body">
-                                        <div class="d-flex">
-                                            <div class="mr-4">
-                                                <small>Number Of Hotels</small>
-                                                <h4 class="mb-0">
-                                                <%
-                                                    out.print(hotelService.countHotels());
-                                                %>
-                                                </h4>
-                                            </div>
-                                        </div>
+                            <div class="row pb-2">
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-12  p-2">
+                                    <div class="form-group">
+                                        <select class="form-select form-select-lg" aria-label="form-select-lg example" name="country" id="countrySelect" tabindex="8" required>
+                                            <option value="<%=user.getCountry().getCountryCode()%>" selected><%=user.getCountry().getCountryName()%></option>
+                                            <% 
+                                                CountryService countriesService = new CountryServiceImpl();
+                                                List<Country> countries = countriesService.selectCountries();
+                                                for(int i = 0; i < countries.size(); i++){
+                                                    out.print("<option value='" + countries.get(i).getCountryCode() + "'>" + countries.get(i).getCountryName() + "</option>");
+                                                }
+                                            %>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-12 p-2">
+                                    <div class="form-group">
+                                        <select class="form-select form-select-lg" aria-label="Disabled select example" id="citySelect" name="city" tabindex="9" required>
+                                            <option value="<%=user.getCity().getCityCode()%>" selected><%=user.getCity().getCityName()%></option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
-                        </div>                    
-                </section>
-            </div>
-            <div class="container-fluid">
-                <div class="testimonials">
-                    <div class="testimonial-inner">
-                        <h1>Lastest Comments</h1>
-                        <div class="border"></div>
-                    
-                        <div class="row">
-                            <%
-                                CommentServices commentService = new CommentServicesImpl();
-                                List<Comments> comments = commentService.getLastComments();
-                                for(int i = 0; i < comments.size(); i++){
-                                    Users commentPerson = comments.get(i).getUsers();
-                                    out.print("<div class='col'><div class='testimonial'>");
-                                    out.print("<img class='imgPerson' src='Avatar.png'>");
-                                    out.print("<div class='name'>" + commentPerson.getUserFirstName() + " " + commentPerson.getUserLastName() + "</div><div class='stars'><i class='fas fa-star'></i><i class='fas fa-star'></i><i class='fas fa-star'></i><i class='fas fa-star'></i><i class='fas fa-star'></i></div>");
-                                    out.print("<p>" + comments.get(i).getCommentContent() + "</p>");
-                                    out.print("</div></div>");
-                                }
-                            %>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 justify-content-end p-2">
-                                <a href="#" id="seeMore" style="color: #6ab04c; font-size: 18px; text-decoration: none;">See more <i class="fas fa-angle-double-right ml-1 pt-1" style="font-size: 15px;"></i></a>
+                            <div class="row pb-2">
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-12 p-2">
+                                    <div class="form-group">
+                                        <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" value="<%=user.getUserPassword()%>" tabindex="10" required>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-12 p-2">
+                                    <div class="form-group">
+                                        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-lg" placeholder="Confirm Password" tabindex="11" required>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                            <div class="row pb-2">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-12 p-2">
+                                    <div class="form-group">
+                                        <input type="file" class="form-control" id="customFile" name="pPhoto" tabindex="12"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="colorgraph">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-12 p-2 w-100" align="center">
+                                    <button type="submit" class="btn btn-primary btn-block btn-lg w-50 p-3" id="saveButton">Save</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
-            </div>
-            <div class="container-fluid cancellationSection">
-
-            </div>
-            <div class="container-fluid footerSection">
-                <div class="footerContent pt-3">
-                    &copy; copyrights FCI Students
-                </div>
-            </div>
+            </div>       
         </section>
-                        
+                            
         <!---- Script Tags ---->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
         <script>AOS.init({ offset: 200, delay: 200, duration: 1000 });</script>
         <!--===============================================================================================--->
-        <script src="<%=request.getContextPath()%>/js/dashboard.js"></script>
-        
+        <script src="<%=request.getContextPath()%>/js/editProfile.js"></script>
     </body>
 </html>

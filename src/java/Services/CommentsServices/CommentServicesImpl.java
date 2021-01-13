@@ -13,5 +13,10 @@ public class CommentServicesImpl implements CommentServices{
     public List<Comments> getRandomComments() {
         return commentDao.getRandomComments();
     }
+
+    @Override
+    public List<Comments> getLastComments() {
+        return commentDao.getLastComments();
+    }
     
 }

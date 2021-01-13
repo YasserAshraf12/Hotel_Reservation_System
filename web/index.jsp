@@ -5,7 +5,7 @@
 <%@page import="Models.Comments"%>
 <%@page import="Services.CommentsServices.CommentServices"%>
 <%@page import="Services.CommentsServices.CommentServicesImpl"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" session="true"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -108,7 +108,7 @@
         </ol>
         
         <div class="carousel-inner" role="listbox">
-            <%
+             <%
                 CommentServices commentServices = new CommentServicesImpl();
                 List<Comments> list = commentServices.getRandomComments();
                 for(int i = 0; i < list.size(); i++){

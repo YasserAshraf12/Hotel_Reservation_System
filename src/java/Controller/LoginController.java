@@ -63,7 +63,8 @@ public class LoginController extends HttpServlet {
                 request.setAttribute("Username", username);
                 request.setAttribute("UserID", user.getUserId());
                 sessionS.setAttribute("UserID", user.getUserId());
-                Cookie cookie = new Cookie("UserID", (user.getUserId()).toString());
+                Cookie cookie = new Cookie("Username", (user.getUserUserName()).toString());
+                response.addCookie(cookie);
                 UserType usertype = user.getUserType();
                 if(usertype.getTypeId() == 1){
                     page = "/Hotel_Reservation_System/JSP/admin/dashboard.jsp";
