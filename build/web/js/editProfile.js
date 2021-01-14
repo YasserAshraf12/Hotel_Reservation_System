@@ -53,19 +53,52 @@ $(document).ready(function() {
         var password = document.getElementById("password"); // Check For Confirm Password
         var passwordConfirmation = document.getElementById("password_confirmation");
         var pPhoto = document.getElementById("customFile"); // Null
+   
+        
         
         //Code Javascript To validate
+    
+        // Validate Confirm Password 
+//        $('#conpasscheck').hide();
+      
+        
         
         //Ajax Request and response
-        
-        var editData = {
-            firstname: $('#first_name').val()
-            
-        };
-        $.ajax({
-            
+//        
+//        var editData = {
+//            firstname: $('#first_name').val()
+//            
+//        };
+//        $.ajax({
+//            
+       });
+       
+       
+         let confirmPasswordError = true;
+        $('#password_confirmation').keyup(function () {
+            validateConfirmPasswrd();
         });
-    });
+        function validateConfirmPasswrd() {
+            let confirmPasswordValue =
+                    $('#password_confirmation').val();
+            let passwrdValue =
+                    $('#password').val();
+            if (passwrdValue != confirmPasswordValue) {
+                $('#conpasscheck').show();
+                $('#conpasscheck').html(
+                        "**Password Must Match");
+                $('#conpasscheck').css(
+                        "color", "red");
+                confirmPasswordError = false;
+//                return false;
+            } else {
+                $('#conpasscheck').hide();
+            }
+        } 
+      
+       
+       
+   
 });
 
 

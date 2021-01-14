@@ -91,7 +91,7 @@
                         <div class="row">
                             <div class="col-12 col-lg-12 col-md-12 col-sm-12 col-xl-12">
                                 <div class="form-floating mb-3">
-                                    <input type="number" class="form-control" id="age" name="age" placeholder="Age" patter="[0-9]" required>
+                                    <input type="number" class="form-control" id="age" name="age" placeholder="Age" pattern="[0-9]" required>
                                     <label for="age">Age</label>
                                 </div>
                             </div>

@@ -239,7 +239,7 @@
             <div class="container"><br><br>
                 <div class="row" id="main">
                     <div class="col-md-12">
-                        <form role="form">
+                        <form role="form" >
                             <h2 style="color: white;">Edit your profile.<small>It's always easy</small></h2>
                             <hr class="colorgraph">
                             <div class="row msgRow p-2"></div>
@@ -247,12 +247,12 @@
                             <div class="row pb-2">
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-12 p-2">
                                     <div class="form-group">
-                                        <input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="First Name" value="<%=user.getUserFirstName()%>" tabindex="1" required>
+                                        <input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="First Name" value="<%=user.getUserFirstName()%>" tabindex="1"  pattern="[a-zA-Z]{2,45}" required>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-12 p-2">
                                     <div class="form-group">
-                                            <input type="text" name="last_name" id="last_name" class="form-control input-lg" placeholder="Last Name" value="<%=user.getUserLastName()%>" tabindex="2" required>
+                                            <input type="text" name="last_name" id="last_name" class="form-control input-lg" placeholder="Last Name" value="<%=user.getUserLastName()%>" tabindex="2" pattern="[a-zA-Z]{2,45}" required>
                                     </div>
                                 </div>
                             </div>
@@ -273,12 +273,12 @@
                             <div class="row pb-2">
                                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-12 p-2">
                                     <div class="form-group">
-                                        <input type="tel" name="phoneNum" id="phoneNum" class="form-control input-lg" placeholder="Phone Number" value="<%=user.getUserTelefone()%>" tabindex="5" required>
+                                        <input type="tel" name="phoneNum" id="phoneNum" class="form-control input-lg" placeholder="Phone Number" value="<%=user.getUserTelefone()%>" tabindex="5"  pattern="[0-9]{11}" required>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-12 p-2">
                                     <div class="form-group">
-                                        <input type="number" name="age" id="age" class="form-control input-lg" placeholder="Age" value="<%=user.getUserAge()%>" tabindex="6" required>
+                                        <input type="number" name="age" id="age" class="form-control input-lg" placeholder="Age" value="<%=user.getUserAge()%>" tabindex="6"   pattern="[0-9]" required>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-12 p-2">
@@ -314,11 +314,15 @@
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-12 p-2">
                                     <div class="form-group">
                                         <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" value="<%=user.getUserPassword()%>" tabindex="10" required>
+                                        
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-12 p-2">
                                     <div class="form-group">
-                                        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-lg" placeholder="Confirm Password" tabindex="11" required>
+                                        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-lg" placeholder="Confirm Password" tabindex="11" onkeyup="validateConfirmPasswrd()" required>
+                                        <h5 id="conpasscheck" > 
+                                            <!--**Password  didnt match--> 
+                                        </h5> 
                                     </div>
                                 </div>
                             </div>
