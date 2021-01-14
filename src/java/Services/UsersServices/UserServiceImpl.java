@@ -32,4 +32,8 @@ public class UserServiceImpl implements UsersService{
     public Long countUsers() {
         return loginDao.countUsers();
     }
+    
+    public boolean updateUser(Users user) {
+        return loginDao.updateUser(user);
+    }
 }

@@ -9,4 +9,5 @@ public interface UsersService {
     public Users selectByUsername(String username);
     public Users selectByID(Integer Id);
     public Long countUsers();
+    public boolean updateUser(Users user);
 }

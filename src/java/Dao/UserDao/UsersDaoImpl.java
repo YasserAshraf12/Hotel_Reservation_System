@@ -93,6 +93,53 @@ public class UsersDaoImpl implements UsersDao{
         }
         return -1L;
     }
+    
+    public boolean updateUser(Users user){
+    
+        Session session = HibernateUtil.getSession();
+        
+        if (session != null) {
+            Transaction tx = session.beginTransaction();
+           
+
+//            String hql = "update Users set userFirstName=(:userfirstname) ,userLastName=(:userlastname),userAddress=(:useraddress) , userAge=(:userage) ,userPassword=(:userpassword) ,userTelefone=(:userphone) ,country=(:country)  ,city=(:city) , userProfilePhoto=(:photo) WHERE userUserName = (:username)";
+            String hql = "UPDATE Users SET "
+                    + "userFirstName= :userfirstname, userLastName= :userlastname, userAddress= :useraddress, "
+                    + "userAge= :userage, userPassword= :userpassword, userTelefone= :userphone, "
+                    + "country= :country, city= :city, userProfilePhoto= :photo"
+                    + " WHERE userUserName = :username";
+
+            Query query = session.createQuery(hql);
+            query.setParameter("username", user.getUserUserName());
+            query.setParameter("userfirstname", user.getUserFirstName());
+            query.setParameter("userlastname", user.getUserLastName());
+            query.setParameter("useraddress", user.getUserAddress());
+            query.setParameter("userage", user.getUserAge());
+            query.setParameter("userpassword", user.getUserPassword());
+            query.setParameter("userphone", user.getUserTelefone());
+            query.setParameter("country", user.getCountry());
+            query.setParameter("city", user.getCity());
+            query.setParameter("photo", user.getUserProfilePhoto());
+
+            
+//            Users user = (Users) query.uniqueResult();
+            int status=query.executeUpdate();
+            tx.commit();
+            HibernateUtil.closeSession();
+//            System.out.println(status); 
+//            System.out.println( user.getUserUserName());
+            
+            if( status <1){
+            
+            return false;
+            }
+           
+            return true;
+            }
+        
+       
+    return false;
+    }
 }
     
 

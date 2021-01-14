@@ -239,7 +239,7 @@
             <div class="container"><br><br>
                 <div class="row" id="main">
                     <div class="col-md-12">
-                        <form role="form" >
+                        <form role="form" id="myForm" method="POST">
                             <h2 style="color: white;">Edit your profile.<small>It's always easy</small></h2>
                             <hr class="colorgraph">
                             <div class="row msgRow p-2"></div>

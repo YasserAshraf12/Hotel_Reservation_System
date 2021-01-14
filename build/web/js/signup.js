@@ -17,7 +17,7 @@ $(document).ready(()=>{
                 type: "POST",
                 data: vdata,
                 dataType: "json",
-                succss: function(data, textStatus, jqXHR){
+                success: function(data, textStatus, jqXHR){
                     $('#citySelect').append(data);
                 },
                 error: function(jqXHR, textStatus, errorThrown){
