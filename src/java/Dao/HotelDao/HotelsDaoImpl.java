@@ -5,7 +5,11 @@
  */
 package Dao.HotelDao;
 
+import Models.Hotels;
+import Models.Users;
 import Util.HibernateUtil;
+import java.util.ArrayList;
+import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -29,5 +33,22 @@ public class HotelsDaoImpl implements HotelsDao{
         }
         return -1L;
     }
+
+    @Override
+    public List<Hotels> selectHotels() {
+        Session session = HibernateUtil.getSession();
+        List list;
+        if(session != null){
+            String hql="FROM Hotels";
+            Query query = session.createQuery(hql);
+            list = new ArrayList();
+            for(final Object o : query.list()) {
+                    list.add((Hotels)o);
+            }
+            return list;
+        }
+        return null;
+    }
+    
     
 }

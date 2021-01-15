@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jan 4, 2021 6:34:41 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jan 15, 2021 6:32:47 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="Models.Hotels" table="hotels" catalog="lifetrip_hrs" optimistic-lock="version">
         <id name="hotelId" type="int">
@@ -23,8 +23,17 @@
         <property name="hotelAddress" type="string">
             <column name="Hotel_Address" length="250" />
         </property>
-        <property name="hotelPhotos" type="string">
-            <column name="Hotel_Photos" length="250" />
+        <property name="hotelLongitude" type="string">
+            <column name="Hotel_Longitude" length="250" />
+        </property>
+        <property name="hotelLatitude" type="string">
+            <column name="Hotel_Latitude" length="250" />
+        </property>
+        <property name="hotelStars" type="java.lang.Integer">
+            <column name="Hotel_Stars" />
+        </property>
+        <property name="distanceFromGc" type="java.lang.Double">
+            <column name="Distance_From_GC" precision="22" scale="0" />
         </property>
         <set name="specificHotelFeatures" table="specific_hotel_feature" inverse="true" lazy="true" fetch="select">
             <key>
@@ -61,6 +70,12 @@
                 <column name="Hotel_ID" />
             </key>
             <one-to-many class="Models.Rooms" />
+        </set>
+        <set name="hotelPhotoses" table="hotel_photos" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="hotel_Id" not-null="true" />
+            </key>
+            <one-to-many class="Models.HotelPhotos" />
         </set>
     </class>
 </hibernate-mapping>

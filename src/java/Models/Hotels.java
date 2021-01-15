@@ -1,5 +1,5 @@
 package Models;
-// Generated Jan 4, 2021 6:34:40 PM by Hibernate Tools 4.3.1
+// Generated Jan 15, 2021 6:32:47 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -17,13 +17,17 @@ public class Hotels  implements java.io.Serializable {
      private String hotelName;
      private String emailAddress;
      private String hotelAddress;
-     private String hotelPhotos;
+     private String hotelLongitude;
+     private String hotelLatitude;
+     private Integer hotelStars;
+     private Double distanceFromGc;
      private Set specificHotelFeatures = new HashSet(0);
      private Set hotelRatings = new HashSet(0);
      private Set commentses = new HashSet(0);
      private Set roomses = new HashSet(0);
      private Set roomses_1 = new HashSet(0);
      private Set roomses_2 = new HashSet(0);
+     private Set hotelPhotoses = new HashSet(0);
 
     public Hotels() {
     }
@@ -33,20 +37,24 @@ public class Hotels  implements java.io.Serializable {
         this.hotelId = hotelId;
         this.country = country;
     }
-    public Hotels(int hotelId, Country country, HotelChains hotelChains, String hotelName, String emailAddress, String hotelAddress, String hotelPhotos, Set specificHotelFeatures, Set hotelRatings, Set commentses, Set roomses, Set roomses_1, Set roomses_2) {
+    public Hotels(int hotelId, Country country, HotelChains hotelChains, String hotelName, String emailAddress, String hotelAddress, String hotelLongitude, String hotelLatitude, Integer hotelStars, Double distanceFromGc, Set specificHotelFeatures, Set hotelRatings, Set commentses, Set roomses, Set roomses_1, Set roomses_2, Set hotelPhotoses) {
        this.hotelId = hotelId;
        this.country = country;
        this.hotelChains = hotelChains;
        this.hotelName = hotelName;
        this.emailAddress = emailAddress;
        this.hotelAddress = hotelAddress;
-       this.hotelPhotos = hotelPhotos;
+       this.hotelLongitude = hotelLongitude;
+       this.hotelLatitude = hotelLatitude;
+       this.hotelStars = hotelStars;
+       this.distanceFromGc = distanceFromGc;
        this.specificHotelFeatures = specificHotelFeatures;
        this.hotelRatings = hotelRatings;
        this.commentses = commentses;
        this.roomses = roomses;
        this.roomses_1 = roomses_1;
        this.roomses_2 = roomses_2;
+       this.hotelPhotoses = hotelPhotoses;
     }
    
     public int getHotelId() {
@@ -91,12 +99,33 @@ public class Hotels  implements java.io.Serializable {
     public void setHotelAddress(String hotelAddress) {
         this.hotelAddress = hotelAddress;
     }
-    public String getHotelPhotos() {
-        return this.hotelPhotos;
+    public String getHotelLongitude() {
+        return this.hotelLongitude;
     }
     
-    public void setHotelPhotos(String hotelPhotos) {
-        this.hotelPhotos = hotelPhotos;
+    public void setHotelLongitude(String hotelLongitude) {
+        this.hotelLongitude = hotelLongitude;
+    }
+    public String getHotelLatitude() {
+        return this.hotelLatitude;
+    }
+    
+    public void setHotelLatitude(String hotelLatitude) {
+        this.hotelLatitude = hotelLatitude;
+    }
+    public Integer getHotelStars() {
+        return this.hotelStars;
+    }
+    
+    public void setHotelStars(Integer hotelStars) {
+        this.hotelStars = hotelStars;
+    }
+    public Double getDistanceFromGc() {
+        return this.distanceFromGc;
+    }
+    
+    public void setDistanceFromGc(Double distanceFromGc) {
+        this.distanceFromGc = distanceFromGc;
     }
     public Set getSpecificHotelFeatures() {
         return this.specificHotelFeatures;
@@ -139,6 +168,13 @@ public class Hotels  implements java.io.Serializable {
     
     public void setRoomses_2(Set roomses_2) {
         this.roomses_2 = roomses_2;
+    }
+    public Set getHotelPhotoses() {
+        return this.hotelPhotoses;
+    }
+    
+    public void setHotelPhotoses(Set hotelPhotoses) {
+        this.hotelPhotoses = hotelPhotoses;
     }
 
 

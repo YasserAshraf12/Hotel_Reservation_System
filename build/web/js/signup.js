@@ -18,6 +18,8 @@ $(document).ready(()=>{
                 data: vdata,
                 dataType: "json",
                 success: function(data, textStatus, jqXHR){
+                    $('#citySelect').empty();
+                    $('#citySelect').append("<option selected>Select City</option>");
                     $('#citySelect').append(data);
                 },
                 error: function(jqXHR, textStatus, errorThrown){

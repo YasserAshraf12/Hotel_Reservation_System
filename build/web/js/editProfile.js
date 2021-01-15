@@ -41,25 +41,37 @@ $(document).ready(function () {
           $("#myForm").submit(function (e) {
                 e.preventDefault();
             });
-        
-// Pattern f JSP
+     
         var fname = document.getElementById("first_name");
         var lname = document.getElementById("last_name");
         var username = document.getElementById("username");
         var email = document.getElementById("email");
         var pNum = document.getElementById("phoneNum");
         var age = document.getElementById("age");
-        var address = document.getElementById("address"); // Null
+        var address = document.getElementById("address"); 
         var country = document.getElementById("countrySelect");
         var city = document.getElementById("citySelect");
-        var password = document.getElementById("password"); // Check For Confirm Password
+        var password = document.getElementById("password");
         var passwordConfirmation = document.getElementById("password_confirmation");
-        var pPhoto = document.getElementById("customFile"); // Null
+        var pPhoto = document.getElementById("customFile"); 
+        
+        let confirmPasswordError = true;
+        $('#password_confirmation').keyup(function () {validateConfirmPasswrd();});
+        function validateConfirmPasswrd() {
+                let confirmPasswordValue = $('#password_confirmation').val();
+                let passwrdValue = $('#password').val();
+                if (passwrdValue !== confirmPasswordValue) {
+                        $('#conpasscheck').show();
+                        $('#conpasscheck').html("**Password Must Match");
+                        $('#conpasscheck').css("color", "red");
+                        confirmPasswordError = false;
+                } else {
+                        $('#conpasscheck').hide();
+                }
+        }
 
-
-        //Ajax Request and response
-        if (confirmPasswordError == true) {
-
+        if (confirmPasswordError  ===  true) {
+            
             var editData = {
                 firstname: $('#first_name').val(),
                 lastname: $('#last_name').val(),
@@ -73,68 +85,40 @@ $(document).ready(function () {
                 password: $('#password').val(),
                 customFile: $('#customFile').val()
             };
-
-          
-
-
+            
             $.ajax({
-
                 url: "../editProfileData",
                 type: "POST",
                 data: editData,
                 dataType: "json",
                 success: function (data, textStatus, jqXHR) {
-                    ////!
-                    
-                    if (data.a.status)
-                        alert("Profile Updated");
-                    else
-                        alert("Failed Updated");
+                    if (data.a.status){
+                            $(".msgRow").empty();
+                            $(".msgRow").html("Profile Updated");
+                            $(".msgRow").attr("role", "alert");
+                            $(".msgRow").addClass("alert alert-success");
+                            if(data.a.type === 1){
+                                setTimeout(function () {
+                                    window.location = "JSP/admin/dashboard.jsp";
+                                }, 1500);
+                            }else{
+                                setTimeout(function () {
+                                    window.location = "JSP/client/home.jsp";
+                                }, 1500);
+                            }
+                    }else{
+                            $(".msgRow").empty();
+                            $(".msgRow").html("Profile Update Failed");
+                            $(".msgRow").attr("role", "alert");
+                            $(".msgRow").addClass("alert alert-danger");
+                    }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                      alert(errorThrown);
-//                    alert(jqXHR.responseText);
+                      alert("Error Update-Server Error");
                 }
-
-
             });
-
         }
-//        png -> avatar  if value =" "
-
-
-
-//            
     });
-    //Code Javascript To validate
-
-    // Validate Confirm Password 
-
-    let confirmPasswordError = true;
-    $('#password_confirmation').keyup(function () {
-        validateConfirmPasswrd();
-    });
-    function validateConfirmPasswrd() {
-        let confirmPasswordValue =
-                $('#password_confirmation').val();
-        let passwrdValue =
-                $('#password').val();
-        if (passwrdValue != confirmPasswordValue) {
-            $('#conpasscheck').show();
-            $('#conpasscheck').html(
-                    "**Password Must Match");
-            $('#conpasscheck').css(
-                    "color", "red");
-            confirmPasswordError = false;
-//                return false;
-        } else {
-            $('#conpasscheck').hide();
-        }
-    }
-
-
-
-
 });
 
 

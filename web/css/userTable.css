@@ -333,3 +333,12 @@ table{
     cursor: pointer;
     text-decoration: underline;
 }
+
+
+td, th{
+    text-align: center;
+}
+
+.toggle-vis{
+    cursor: pointer;
+}

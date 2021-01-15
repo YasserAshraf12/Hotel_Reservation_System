@@ -15,39 +15,20 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/sendMail")
 public class sendMail extends HttpServlet {
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet sendMail</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-    }
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         String fname = request.getParameter("fname");
         String email = request.getParameter("email");
+        String password = request.getParameter("password");
         String phone = request.getParameter("phone");
         String msg = request.getParameter("msg");
         
         
         JavaMailUtil javaMail = new JavaMailUtil();
         String htmlCode = "<h1>" + fname + "</h1>" + "<p>" + msg + "</p>" + "<br>" + "<small>Contact Me: " + phone + "</small>";
-        javaMail.sendMail(email, htmlCode);
+        javaMail.sendMail(email, password, htmlCode);
         
         Gson gson = new Gson(); 
         JsonObject json = new JsonObject();

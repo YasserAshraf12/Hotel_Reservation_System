@@ -18,5 +18,12 @@ public class CommentServicesImpl implements CommentServices{
     public List<Comments> getLastComments() {
         return commentDao.getLastComments();
     }
+
+    @Override
+    public boolean deleteComment(Integer id) {
+        return commentDao.deleteComment(id);
+    }
+    
+    
     
 }

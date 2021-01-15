@@ -3,37 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Aya/Desktop/myFolders/Uni/4-1stterm/IA/Hotel_Reservation_System/src/java/Services/UserTypeServices/UserTypeServicesImpl.java</file>
-            <file>file:/C:/Users/Aya/Desktop/myFolders/Uni/4-1stterm/IA/Hotel_Reservation_System/web/JSP/userLogin.jsp</file>
-            <file>file:/C:/Users/Aya/Desktop/myFolders/Uni/4-1stterm/IA/Hotel_Reservation_System/src/java/Controller/LoginController.java</file>
-            <file>file:/C:/Users/Aya/Desktop/myFolders/Uni/4-1stterm/IA/Hotel_Reservation_System/src/java/Models/Users.hbm.xml</file>
-            <file>file:/C:/Users/Aya/Desktop/myFolders/Uni/4-1stterm/IA/Hotel_Reservation_System/src/java/Dao/BookingDao/BookingDao.java</file>
-            <file>file:/C:/Users/Aya/Desktop/myFolders/Uni/4-1stterm/IA/Hotel_Reservation_System/src/java/Controller/sendMail.java</file>
-            <file>file:/C:/Users/Aya/Desktop/myFolders/Uni/4-1stterm/IA/Hotel_Reservation_System/web/JSP/admin/dashboard.jsp</file>
-            <file>file:/C:/Users/Aya/Desktop/myFolders/Uni/4-1stterm/IA/Hotel_Reservation_System/src/java/Services/UsersServices/UserServiceImpl.java</file>
-            <file>file:/C:/Users/Aya/Desktop/myFolders/Uni/4-1stterm/IA/Hotel_Reservation_System/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/Aya/Desktop/myFolders/Uni/4-1stterm/IA/Hotel_Reservation_System/src/java/Models/Users.java</file>
-            <file>file:/C:/Users/Aya/Desktop/myFolders/Uni/4-1stterm/IA/Hotel_Reservation_System/web/js/index.js</file>
-            <file>file:/C:/Users/Aya/Desktop/myFolders/Uni/4-1stterm/IA/Hotel_Reservation_System/src/java/Dao/BookingDao/BookingDaoImpl.java</file>
-            <file>file:/C:/Users/Aya/Desktop/myFolders/Uni/4-1stterm/IA/Hotel_Reservation_System/web/JSP/userSignUp.jsp</file>
-            <file>file:/C:/Users/Aya/Desktop/myFolders/Uni/4-1stterm/IA/Hotel_Reservation_System/web/JSP/admin/usersTable.jsp</file>
-            <file>file:/C:/Users/Aya/Desktop/myFolders/Uni/4-1stterm/IA/Hotel_Reservation_System/src/java/Controller/editProfileData.java</file>
-            <file>file:/C:/Users/Aya/Desktop/myFolders/Uni/4-1stterm/IA/Hotel_Reservation_System/src/java/Controller/cityReload.java</file>
-            <file>file:/C:/Users/Aya/Desktop/myFolders/Uni/4-1stterm/IA/Hotel_Reservation_System/web/js/signup.js</file>
-            <file>file:/C:/Users/Aya/Desktop/myFolders/Uni/4-1stterm/IA/Hotel_Reservation_System/web/JSP/editProfile.jsp</file>
-            <file>file:/C:/Users/Aya/Desktop/myFolders/Uni/4-1stterm/IA/Hotel_Reservation_System/src/java/Dao/UserDao/UsersDaoImpl.java</file>
-            <file>file:/C:/Users/Aya/Desktop/myFolders/Uni/4-1stterm/IA/Hotel_Reservation_System/src/java/Controller/LogoutController.java</file>
-            <file>file:/C:/Users/Aya/Desktop/myFolders/Uni/4-1stterm/IA/Hotel_Reservation_System/web/js/userTable.js</file>
-            <file>file:/C:/Users/Aya/Desktop/myFolders/Uni/4-1stterm/IA/Hotel_Reservation_System/web/index.jsp</file>
-            <file>file:/C:/Users/Aya/Desktop/myFolders/Uni/4-1stterm/IA/Hotel_Reservation_System/web/js/editProfile.js</file>
-            <file>file:/C:/Users/Aya/Desktop/myFolders/Uni/4-1stterm/IA/Hotel_Reservation_System/src/java/Dao/UserType/UserTypeDao.java</file>
-            <file>file:/C:/Users/Aya/Desktop/myFolders/Uni/4-1stterm/IA/Hotel_Reservation_System/src/java/Util/HibernateUtil.java</file>
-            <file>file:/C:/Users/Aya/Desktop/myFolders/Uni/4-1stterm/IA/Hotel_Reservation_System/src/java/Services/UsersServices/UsersService.java</file>
-            <file>file:/C:/Users/Aya/Desktop/myFolders/Uni/4-1stterm/IA/Hotel_Reservation_System/src/java/Controller/signUpController.java</file>
-            <file>file:/C:/Users/Aya/Desktop/myFolders/Uni/4-1stterm/IA/Hotel_Reservation_System/src/java/Dao/UserType/UserTypeDaoImpl.java</file>
-            <file>file:/C:/Users/Aya/Desktop/myFolders/Uni/4-1stterm/IA/Hotel_Reservation_System/src/java/Dao/UserDao/UsersDao.java</file>
-            <file>file:/C:/Users/Aya/Desktop/myFolders/Uni/4-1stterm/IA/Hotel_Reservation_System/src/java/hibernate.cfg.xml</file>
-            <file>file:/C:/Users/Aya/Desktop/myFolders/Uni/4-1stterm/IA/Hotel_Reservation_System/web/js/dashboard.js</file>
+            <file>file:/C:/Users/Top/Desktop/Hotel_Reservation_System/web/JSP/admin/hotelTable.jsp</file>
+            <file>file:/C:/Users/Top/Desktop/Hotel_Reservation_System/web/js/hotelTable.js</file>
+            <file>file:/C:/Users/Top/Desktop/Hotel_Reservation_System/src/java/Services/SpecifichotelFeaturesServices/SpecificHotelFeaturesServiceImpl.java</file>
+            <file>file:/C:/Users/Top/Desktop/Hotel_Reservation_System/web/css/hotelTable.css</file>
         </group>
     </open-files>
 </project-private>

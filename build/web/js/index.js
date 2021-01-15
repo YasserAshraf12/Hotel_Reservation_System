@@ -70,10 +70,10 @@ $(document).ready(()=>{
         var mdata = {
             fname: $('#fname').val(),
             email: $('#email').val(),
+            password: $('#password').val(),
             phone: $('#phone').val(), 
             msg: $('#comment').val()
         };
-        
         $.ajax({
             url: "sendMail",
             type: "POST",
@@ -86,6 +86,7 @@ $(document).ready(()=>{
                     alert("Email Not Sent");
             },
             error: function(jqXHR, textStatus, errorThrown){
+                console.log(mdata);
                 alert(jqXHR.responseText);
             }
         });

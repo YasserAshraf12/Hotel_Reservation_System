@@ -321,7 +321,6 @@
                                     <div class="form-group">
                                         <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-lg" placeholder="Confirm Password" tabindex="11" onkeyup="validateConfirmPasswrd()" required>
                                         <h5 id="conpasscheck" > 
-                                            <!--**Password  didnt match--> 
                                         </h5> 
                                     </div>
                                 </div>
@@ -344,6 +343,7 @@
                 </div>
             </div>       
         </section>
+                            
                             
         <!---- Script Tags ---->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

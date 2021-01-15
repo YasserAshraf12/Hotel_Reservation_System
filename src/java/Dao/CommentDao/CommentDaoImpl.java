@@ -49,5 +49,21 @@ public class CommentDaoImpl implements CommentDao{
         }
         return null;
     }
+
+    @Override
+    public boolean deleteComment(Integer id) {
+         Session session = HibernateUtil.getSession();
+        
+        if (session != null) {
+            Transaction tx = session.beginTransaction();
+            String hql = "DELETE FROM Comments C WHERE C.users.userId= :id";
+            Query query = session.createQuery(hql);
+            query.setInteger("id", id);
+            int r = query.executeUpdate();
+            tx.commit(); 
+           return true;
+        }
+        return false;
+    }
     
 }

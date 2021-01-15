@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jan 4, 2021 6:34:41 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jan 15, 2021 6:32:47 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="Models.UserType" table="user_type" catalog="lifetrip_hrs" optimistic-lock="version">
         <id name="typeId" type="java.lang.Integer">

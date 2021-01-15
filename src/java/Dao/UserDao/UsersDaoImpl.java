@@ -1,7 +1,12 @@
 package Dao.UserDao;
 
 import Models.Users;
+import Services.CommentsServices.CommentServices;
+import Services.CommentsServices.CommentServicesImpl;
 import Util.HibernateUtil;
+import static java.lang.System.console;
+import java.util.ArrayList;
+import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -93,16 +98,15 @@ public class UsersDaoImpl implements UsersDao{
         }
         return -1L;
     }
-    
-    public boolean updateUser(Users user){
+
+    @Override
+     public boolean updateUser(Users user){
     
         Session session = HibernateUtil.getSession();
         
         if (session != null) {
             Transaction tx = session.beginTransaction();
            
-
-//            String hql = "update Users set userFirstName=(:userfirstname) ,userLastName=(:userlastname),userAddress=(:useraddress) , userAge=(:userage) ,userPassword=(:userpassword) ,userTelefone=(:userphone) ,country=(:country)  ,city=(:city) , userProfilePhoto=(:photo) WHERE userUserName = (:username)";
             String hql = "UPDATE Users SET "
                     + "userFirstName= :userfirstname, userLastName= :userlastname, userAddress= :useraddress, "
                     + "userAge= :userage, userPassword= :userpassword, userTelefone= :userphone, "
@@ -122,23 +126,52 @@ public class UsersDaoImpl implements UsersDao{
             query.setParameter("photo", user.getUserProfilePhoto());
 
             
-//            Users user = (Users) query.uniqueResult();
             int status=query.executeUpdate();
             tx.commit();
-            HibernateUtil.closeSession();
-//            System.out.println(status); 
-//            System.out.println( user.getUserUserName());
             
             if( status <1){
             
             return false;
             }
-           
             return true;
             }
+        return false;
+    }
+
+    @Override
+    public List<Users> selectAllUser() {
+            Session session = HibernateUtil.getSession();
+            List list;
+            if (session != null) {
+                Transaction tx = session.beginTransaction();
+                String hql = "From Users U Where U.userType.typeId= :typeId";
+                Query query = session.createQuery(hql);
+                query.setParameter("typeId", 2);
+                list = new ArrayList();
+                for(final Object o : query.list()) {
+                      list.add((Users)o);
+                }
+                return list;
+            }
+            return null;
+    }
+
+    @Override
+    public boolean deleteUser(Integer id) {
+        CommentServices commentServices = new CommentServicesImpl();
+        commentServices.deleteComment(id);
+        Session session = HibernateUtil.getSession();
         
-       
-    return false;
+        if (session != null) {
+            Transaction tx = session.beginTransaction();
+            String hql = "DELETE FROM Users U WHERE U.userId= :id";
+            Query query = session.createQuery(hql);
+            query.setInteger("id", id);
+            int r = query.executeUpdate();
+            tx.commit(); 
+           return true;
+        }
+        return false;
     }
 }
     

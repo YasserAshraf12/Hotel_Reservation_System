@@ -3,6 +3,7 @@ package Services.UsersServices;
 import Dao.UserDao.UsersDao;
 import Dao.UserDao.UsersDaoImpl;
 import Models.Users;
+import java.util.List;
 
 public class UserServiceImpl implements UsersService{
 
@@ -32,8 +33,19 @@ public class UserServiceImpl implements UsersService{
     public Long countUsers() {
         return loginDao.countUsers();
     }
-    
+
+    @Override
     public boolean updateUser(Users user) {
-        return loginDao.updateUser(user);
+         return loginDao.updateUser(user);
+    }
+
+    @Override
+    public List<Users> selectAllUser() {
+        return loginDao.selectAllUser();
+    }
+
+    @Override
+    public boolean deleteUser(Integer id) {
+        return loginDao.deleteUser(id);
     }
 }

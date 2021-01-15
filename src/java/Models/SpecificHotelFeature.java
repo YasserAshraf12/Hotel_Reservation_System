@@ -1,5 +1,5 @@
 package Models;
-// Generated Jan 4, 2021 6:34:40 PM by Hibernate Tools 4.3.1
+// Generated Jan 15, 2021 6:32:47 AM by Hibernate Tools 4.3.1
 
 
 
@@ -9,24 +9,23 @@ package Models;
 public class SpecificHotelFeature  implements java.io.Serializable {
 
 
-     private int featureId;
+     private Integer featureId;
      private HotelFeatures hotelFeatures;
      private Hotels hotels;
 
     public SpecificHotelFeature() {
     }
 
-    public SpecificHotelFeature(int featureId, HotelFeatures hotelFeatures, Hotels hotels) {
-       this.featureId = featureId;
+    public SpecificHotelFeature(HotelFeatures hotelFeatures, Hotels hotels) {
        this.hotelFeatures = hotelFeatures;
        this.hotels = hotels;
     }
    
-    public int getFeatureId() {
+    public Integer getFeatureId() {
         return this.featureId;
     }
     
-    public void setFeatureId(int featureId) {
+    public void setFeatureId(Integer featureId) {
         this.featureId = featureId;
     }
     public HotelFeatures getHotelFeatures() {

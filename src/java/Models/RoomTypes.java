@@ -1,5 +1,5 @@
 package Models;
-// Generated Jan 4, 2021 6:34:40 PM by Hibernate Tools 4.3.1
+// Generated Jan 15, 2021 6:32:47 AM by Hibernate Tools 4.3.1
 
 
 import java.math.BigDecimal;
@@ -15,6 +15,8 @@ public class RoomTypes  implements java.io.Serializable {
      private String roomTypeCode;
      private BigDecimal standardRoomRate;
      private String roomTypeDescription;
+     private Integer maxChildern;
+     private Integer maxAdult;
      private Set roomses = new HashSet(0);
      private Set roomses_1 = new HashSet(0);
      private Set roomses_2 = new HashSet(0);
@@ -26,10 +28,12 @@ public class RoomTypes  implements java.io.Serializable {
     public RoomTypes(String roomTypeCode) {
         this.roomTypeCode = roomTypeCode;
     }
-    public RoomTypes(String roomTypeCode, BigDecimal standardRoomRate, String roomTypeDescription, Set roomses, Set roomses_1, Set roomses_2) {
+    public RoomTypes(String roomTypeCode, BigDecimal standardRoomRate, String roomTypeDescription, Integer maxChildern, Integer maxAdult, Set roomses, Set roomses_1, Set roomses_2) {
        this.roomTypeCode = roomTypeCode;
        this.standardRoomRate = standardRoomRate;
        this.roomTypeDescription = roomTypeDescription;
+       this.maxChildern = maxChildern;
+       this.maxAdult = maxAdult;
        this.roomses = roomses;
        this.roomses_1 = roomses_1;
        this.roomses_2 = roomses_2;
@@ -55,6 +59,20 @@ public class RoomTypes  implements java.io.Serializable {
     
     public void setRoomTypeDescription(String roomTypeDescription) {
         this.roomTypeDescription = roomTypeDescription;
+    }
+    public Integer getMaxChildern() {
+        return this.maxChildern;
+    }
+    
+    public void setMaxChildern(Integer maxChildern) {
+        this.maxChildern = maxChildern;
+    }
+    public Integer getMaxAdult() {
+        return this.maxAdult;
+    }
+    
+    public void setMaxAdult(Integer maxAdult) {
+        this.maxAdult = maxAdult;
     }
     public Set getRoomses() {
         return this.roomses;

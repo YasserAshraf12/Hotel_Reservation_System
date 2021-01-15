@@ -148,11 +148,6 @@
                         <div class="container">
                             <hr />
                             <li class="nav-item">
-                                <i class="fas fa-rss"></i>
-                                <a href="" class="nav-link">New Feeds</a>
-                            </li>
-                            <hr />
-                            <li class="nav-item">
                                 <i class="far fa-envelope"></i>
                                 <a href="" class="nav-link">Inbox</a>
                             </li>

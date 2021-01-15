@@ -1,6 +1,7 @@
 package Services.UsersServices;
 
 import Models.Users;
+import java.util.List;
 
 public interface UsersService {
     
@@ -10,4 +11,6 @@ public interface UsersService {
     public Users selectByID(Integer Id);
     public Long countUsers();
     public boolean updateUser(Users user);
+    public List<Users> selectAllUser();
+    public boolean deleteUser(Integer id);
 }

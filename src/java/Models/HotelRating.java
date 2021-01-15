@@ -1,5 +1,5 @@
 package Models;
-// Generated Jan 4, 2021 6:34:40 PM by Hibernate Tools 4.3.1
+// Generated Jan 15, 2021 6:32:47 AM by Hibernate Tools 4.3.1
 
 
 
@@ -11,14 +11,16 @@ public class HotelRating  implements java.io.Serializable {
 
      private Integer ratingId;
      private Hotels hotels;
-     private int rateValue;
+     private double rateValue;
+     private int numOfUsers;
 
     public HotelRating() {
     }
 
-    public HotelRating(Hotels hotels, int rateValue) {
+    public HotelRating(Hotels hotels, double rateValue, int numOfUsers) {
        this.hotels = hotels;
        this.rateValue = rateValue;
+       this.numOfUsers = numOfUsers;
     }
    
     public Integer getRatingId() {
@@ -35,12 +37,19 @@ public class HotelRating  implements java.io.Serializable {
     public void setHotels(Hotels hotels) {
         this.hotels = hotels;
     }
-    public int getRateValue() {
+    public double getRateValue() {
         return this.rateValue;
     }
     
-    public void setRateValue(int rateValue) {
+    public void setRateValue(double rateValue) {
         this.rateValue = rateValue;
+    }
+    public int getNumOfUsers() {
+        return this.numOfUsers;
+    }
+    
+    public void setNumOfUsers(int numOfUsers) {
+        this.numOfUsers = numOfUsers;
     }
 
 

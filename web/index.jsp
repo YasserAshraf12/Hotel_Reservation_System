@@ -165,6 +165,10 @@
             <label class="mt-3" for="email">E-mail: *</label>
             <input type="email" class="form-control" id="email" name="email" placeholder="Your e-mail..." required>
             <div class="invalid-feedback">Please provide a valid e-mail.</div>
+            <div class="form-group">
+            <label class="mt-3" for="password">Password: *</label>
+            <input type="password" class="form-control" id="password" name="passsword" placeholder="Your password..." required>
+            <div class="invalid-feedback">Please provide a valid password.</div>
           <div class="form-group">
             <label class="mt-3" for="phone">Phone: *</label>
             <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone number..." required>
@@ -177,7 +181,8 @@
               <button type="submit" class="btn btn-primary btn-block w-30" id="sendMail">Send Mail</button>
           </div>
         </form>
-      </div> 
+      </div>
+    </div>
     </div>
   </section>
 

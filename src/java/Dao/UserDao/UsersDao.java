@@ -1,6 +1,7 @@
 package Dao.UserDao;
 
 import Models.Users;
+import java.util.List;
 
 public interface UsersDao {
     
@@ -10,4 +11,6 @@ public interface UsersDao {
     public Users selectByID(Integer Id);
     public Long countUsers();
     public boolean updateUser(Users user);
+    public List<Users> selectAllUser();
+    public boolean deleteUser(Integer id);
 }

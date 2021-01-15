@@ -1,5 +1,5 @@
 package Models;
-// Generated Jan 4, 2021 6:34:40 PM by Hibernate Tools 4.3.1
+// Generated Jan 15, 2021 6:32:47 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -20,7 +20,6 @@ public class Rooms  implements java.io.Serializable {
      private Set bookingRoomUpdatesForNewRoomId = new HashSet(0);
      private Set roomAvailabilities = new HashSet(0);
      private Set bookingDeleteHistories = new HashSet(0);
-     private Set bookingListInserts = new HashSet(0);
      private Set bookingRoomUpdatesForOldRoomId = new HashSet(0);
 
     public Rooms() {
@@ -31,7 +30,7 @@ public class Rooms  implements java.io.Serializable {
         this.roomId = roomId;
         this.roomTypes = roomTypes;
     }
-    public Rooms(int roomId, Hotels hotels, RoomTypes roomTypes, Integer roomFloor, Integer roomNumber, Set bookings, Set bookingRoomUpdatesForNewRoomId, Set roomAvailabilities, Set bookingDeleteHistories, Set bookingListInserts, Set bookingRoomUpdatesForOldRoomId) {
+    public Rooms(int roomId, Hotels hotels, RoomTypes roomTypes, Integer roomFloor, Integer roomNumber, Set bookings, Set bookingRoomUpdatesForNewRoomId, Set roomAvailabilities, Set bookingDeleteHistories, Set bookingRoomUpdatesForOldRoomId) {
        this.roomId = roomId;
        this.hotels = hotels;
        this.roomTypes = roomTypes;
@@ -41,7 +40,6 @@ public class Rooms  implements java.io.Serializable {
        this.bookingRoomUpdatesForNewRoomId = bookingRoomUpdatesForNewRoomId;
        this.roomAvailabilities = roomAvailabilities;
        this.bookingDeleteHistories = bookingDeleteHistories;
-       this.bookingListInserts = bookingListInserts;
        this.bookingRoomUpdatesForOldRoomId = bookingRoomUpdatesForOldRoomId;
     }
    
@@ -107,13 +105,6 @@ public class Rooms  implements java.io.Serializable {
     
     public void setBookingDeleteHistories(Set bookingDeleteHistories) {
         this.bookingDeleteHistories = bookingDeleteHistories;
-    }
-    public Set getBookingListInserts() {
-        return this.bookingListInserts;
-    }
-    
-    public void setBookingListInserts(Set bookingListInserts) {
-        this.bookingListInserts = bookingListInserts;
     }
     public Set getBookingRoomUpdatesForOldRoomId() {
         return this.bookingRoomUpdatesForOldRoomId;

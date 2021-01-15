@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 15, 2021 6:32:47 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Models.Adminmessages" table="adminmessages" catalog="lifetrip_hrs" optimistic-lock="version">
+        <id name="messageId" type="java.lang.Integer">
+            <column name="message_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="usersByMessageFrom" class="Models.Users" fetch="select">
+            <column name="message_from" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usersByMessageTo" class="Models.Users" fetch="select">
+            <column name="message_to" not-null="true" />
+        </many-to-one>
+        <property name="messageSubject" type="string">
+            <column name="message_subject" length="250" not-null="true" />
+        </property>
+        <property name="messageBody" type="string">
+            <column name="message_body" length="250" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

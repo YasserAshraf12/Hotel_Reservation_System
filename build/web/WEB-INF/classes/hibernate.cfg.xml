@@ -14,7 +14,6 @@
     <mapping resource="Models/BookingDeleteHistory.hbm.xml"/>
     <mapping resource="Models/HotelChains.hbm.xml"/>
     <mapping resource="Models/Comments.hbm.xml"/>
-    <mapping resource="Models/BookingListInsert.hbm.xml"/>
     <mapping resource="Models/HotelRating.hbm.xml"/>
     <mapping resource="Models/BookingStatus.hbm.xml"/>
     <mapping resource="Models/Booking.hbm.xml"/>
@@ -24,6 +23,8 @@
     <mapping resource="Models/UserType.hbm.xml"/>
     <mapping resource="Models/BookingRoomUpdate.hbm.xml"/>
     <mapping resource="Models/City.hbm.xml"/>
+    <mapping resource="Models/HotelPhotos.hbm.xml"/>
+    <mapping resource="Models/Adminmessages.hbm.xml"/>
     <mapping resource="Models/Country.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
