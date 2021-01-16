@@ -6,6 +6,7 @@
 package Dao.HotelDao;
 
 import Models.Hotels;
+import Models.Rooms;
 import Models.Users;
 import Util.HibernateUtil;
 import java.util.ArrayList;
@@ -51,4 +52,8 @@ public class HotelsDaoImpl implements HotelsDao{
     }
     
     
+     
+    
+        
+   
 }

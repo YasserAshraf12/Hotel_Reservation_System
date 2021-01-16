@@ -37,6 +37,12 @@ $(document).ready(function() {
 });
 
 
+      $('#myModal').on('shown.bs.modal', function () {
+          alert("hi");
+          $('#myInput').trigger('focus')
+                
+            })
+
 $(document).ready(function(){
     var list = document.querySelectorAll("#deleteBtn");
     

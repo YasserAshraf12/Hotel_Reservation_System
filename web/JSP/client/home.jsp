@@ -12,6 +12,9 @@
             HttpSession sessionS = request.getSession(false);
             Integer userID = (Integer) sessionS.getAttribute("UserID");
             out.print(userID);
+            
+
+            response.sendRedirect(request.getContextPath() + "/JSP/client/hotelTable.jsp");
         %>
     </body>
 </html>

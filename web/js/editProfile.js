@@ -42,18 +42,18 @@ $(document).ready(function () {
                 e.preventDefault();
             });
      
-        var fname = document.getElementById("first_name");
-        var lname = document.getElementById("last_name");
-        var username = document.getElementById("username");
-        var email = document.getElementById("email");
-        var pNum = document.getElementById("phoneNum");
-        var age = document.getElementById("age");
-        var address = document.getElementById("address"); 
-        var country = document.getElementById("countrySelect");
-        var city = document.getElementById("citySelect");
-        var password = document.getElementById("password");
-        var passwordConfirmation = document.getElementById("password_confirmation");
-        var pPhoto = document.getElementById("customFile"); 
+//        var fname = document.getElementById("first_name");
+//        var lname = document.getElementById("last_name");
+//        var username = document.getElementById("username");
+//        var email = document.getElementById("email");
+//        var pNum = document.getElementById("phoneNum");
+//        var age = document.getElementById("age");
+//        var address = document.getElementById("address"); 
+//        var country = document.getElementById("countrySelect");
+//        var city = document.getElementById("citySelect");
+//        var password = document.getElementById("password");
+//        var passwordConfirmation = document.getElementById("password_confirmation");
+//        var pPhoto = document.getElementById("customFile"); 
         
         let confirmPasswordError = true;
         $('#password_confirmation').keyup(function () {validateConfirmPasswrd();});
