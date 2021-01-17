@@ -71,22 +71,25 @@ public class makeReservation extends HttpServlet {
             Users user = userServices.selectByID(userID);
             Rooms room = roomService.selectRoomByID(Integer.parseInt(roomID));
             BookingStatus bookingStatus = new BookingStatus("P");
-//        Gson gson = new Gson(); 
-//        JsonObject json = new JsonObject();
+
+        JsonObject json = new JsonObject();
 
             Booking booking = new Booking(bookingStatus, room, user, startDate, endDate);
             if(bookingService.makeReservation(booking)) {
-            out.write("<script>alert('Booking Done successfully');</script>");
-         
-            
+
+            json.addProperty("a","Booking Done successfully");
+
              
-//        out.write(json.toString());
-//        out.flush();
+      
         }
-            else
-                  out.print("<script>alert('Booking Failed');</script>");
+            else{
+                     json.addProperty("a","Booking Failed");
+            }
+        out.write(json.toString());
+        out.flush();
          
         }
+        
     
     catch (ParseException ex) {
              Logger.getLogger(makeReservation.class.getName()).log(Level.SEVERE, null, ex);

@@ -18,8 +18,6 @@ $(document).ready(function () {
             e.preventDefault();
         });
         
-        /*------------------------------------------------------------*/
-//      validate dates 
 
 
         let confirmDateRange = true;
@@ -27,24 +25,11 @@ $(document).ready(function () {
             validateDatesRange();
         });
         function validateDatesRange() {
-//                let endDate = $('#to_date').val();
-//                let startDate = $('#from_date').val();
-//  
-//                if (endDate >  startDate && startdate >duedate  ) {
-//                        $('#dateRangecheck').show();
-//                        $('#dateRangecheck').html("** date range isnt available");
-//                        $('#dateRangecheck').css("color", "red");
-//                        confirmPasswordError = false;
-//                } else {
-//                        $('#dateRangecheck').hide();
-//                }
+
         }
-//
-//        if (confirmDateRange  ===  true) {
-//           room_Number hotel_name to_date from_date            
+         
         var editData = {
-//            roomnumber: $('#room_Number').val(),
-//            hotelname: $('#hotel_name').val(),
+
             todate: $('#to_date').val(),
             fromdate: $('#from_date').val(),
             roomid: $('#room_ID').val(),
@@ -57,28 +42,17 @@ $(document).ready(function () {
             data: editData,
             dataType: "json",
             success: function (data, textStatus, jqXHR) {
-                if (data.a.status) {
-                    $(".msgRow").empty();
-                    $(".msgRow").html("booking done successfully");
-                    $(".msgRow").attr("role", "alert");
-                    $(".msgRow").addClass("alert alert-success");
-                    setTimeout(function () {
-                        window.location = "JSP/client/roomTable.jsp";
-                    }, 1500);
 
-                } else {
-                    $(".msgRow").empty();
-                    $(".msgRow").html("booking Failed");
-                    $(".msgRow").attr("role", "alert");
-                    $(".msgRow").addClass("alert alert-danger");
-                }
+            alert(data.a);
+                    setTimeout(function () {
+                        window.location = "roomTable.jsp?id="+parseInt(editData.hotelid);
+                    }, 1500);
             },
             error: function (jqXHR, textStatus, errorThrown) {
-//                alert("Error Update-Server Error");
                     alert(jqXHR.responseText);
             }
         });
-//        }
+
     });
 });
 
