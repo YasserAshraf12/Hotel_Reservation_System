@@ -3,6 +3,7 @@ package Services.BookingServices;
 import Dao.BookingDao.BookingDao;
 import Dao.BookingDao.BookingDaoImpl;
 import Models.Booking;
+import java.util.List;
 
 
 
@@ -21,5 +22,11 @@ public class BookingServicesImpl implements BookingService{
         return bookingDao.makeReservation(booking);
 
     }
-
+    @Override
+    public List<Booking> getReservation(Integer id){
+      
+        return bookingDao.getReservation(id);
+      
+      }
+     
 }

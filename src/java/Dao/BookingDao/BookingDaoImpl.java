@@ -3,6 +3,8 @@ package Dao.BookingDao;
 import Models.Booking;
 import Models.Rooms;
 import Util.HibernateUtil;
+import java.util.ArrayList;
+import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -77,4 +79,24 @@ public class BookingDaoImpl implements BookingDao{
         return false;
 
    }
+   
+   
+   public List<Booking> getReservation(Integer id) {
+        Session session = HibernateUtil.getSession();
+        List<Booking> list;
+        if(session != null){  
+            Transaction tx = session.beginTransaction();
+
+              String hql="  From Booking B Where B.users.userId =:id";
+
+            Query query = session.createQuery(hql);
+            query.setParameter("id", id);
+            list = new ArrayList();
+            for(final Object o : query.list()) {
+                    list.add((Booking)o);
+            }
+            return list;
+        }
+        return null;
+    }
 }
